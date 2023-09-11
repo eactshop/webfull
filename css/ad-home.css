@@ -162,4 +162,35 @@ body {
     display: flex;
     flex-direction: column;
   }
-  
+
+  .pagination{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+    margin-bottom: 35px;
+  }
+  .pagination-item{
+    margin: 0 0.9375rem;
+    text-decoration: none;
+    color: rgba(0,0,0,.4);
+    padding: 5px 15px;
+    font-size: 1.25rem;
+  }
+  .pagination-item__number{
+    margin: 0 0.9375rem;
+    text-decoration: none;
+    color: rgba(0,0,0,.4);
+    padding: 6px 15px;
+    font-size: 1rem;
+  }
+  .pagination-item__cl{
+    text-decoration: none;
+    color: rgba(0,0,0,.4);
+    padding: 5px 15px;
+  }
+  .pagination-color{
+    background-color: rgb(238, 77, 45);
+    color: #fff;
+    border-radius: 3px;
+  }

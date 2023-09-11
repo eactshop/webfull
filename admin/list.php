@@ -15,8 +15,17 @@ $conn = mysqli_connect("localhost", "root", "", "banhang");
 if (!$conn) {
     die("Kết nối CSDL không thành công: " . mysqli_connect_error());
 }
-$sql = "SELECT stt, name, img, price FROM product";
-$result = mysqli_query($conn, $sql);
+$itemsPerPage = 4;
+
+if (isset($_GET['page']) && is_numeric($_GET['page'])) {
+    $currentPage = intval($_GET['page']);
+} else {
+    $currentPage = 1;
+}
+$offset = ($currentPage - 1) * $itemsPerPage;
+$sql = "SELECT stt, name, img, price FROM product LIMIT $offset, $itemsPerPage";
+$result = $conn->query($sql);
+$totalItems = $conn->query("SELECT COUNT(*) as count FROM product")->fetch_assoc()['count'];
 
 if (!$result) {
     die("Lỗi truy vấn: " . mysqli_error($conn));
@@ -42,7 +51,42 @@ while ($row = mysqli_fetch_assoc($result)) {
 }
 mysqli_close($conn);
 ?>
-<div class="a"></div>
-</div>
+    <div class="pagination">
+        <?php
+        $totalPages = ceil($totalItems / $itemsPerPage);
+
+        // Xác định trang trước và trang sau
+        $prevPage = max(1, $currentPage - 1);
+        $nextPage = min($totalPages, $currentPage + 1);
+
+        if ($totalPages > 1 && $totalPages < 7) {
+            echo "<a class = 'pagination-item' href='?page=1'>Trang đầu</a> ";
+            echo "<a class = 'pagination-item' href='?page=$prevPage'>Trang trước</a> ";
+            for ($i = 1; $i <= $totalPages; $i++) {
+                $class = ($i == $currentPage) ? 'pagination-item__number pagination-color' : 'pagination-item__number';
+                echo "<a class = '$class' href='?page=$i'>$i</a> ";
+            }
+            echo "<a class = 'pagination-item' href='?page=$nextPage'>Trang sau</a> ";
+            echo "<a class = 'pagination-item' href='?page=$totalPages'>Trang cuối</a>";
+        }
+        if ($totalPages > 6 ) {
+            echo "<a class = 'pagination-item' href='?page=1'>Trang đầu</a> ";
+            echo "<a class = 'pagination-item' href='?page=$prevPage'>Trang trước</a> ";
+
+            for ($i = 1; $i <= 3; $i++) {
+                $class = ($i == $currentPage) ? 'pagination-item__number pagination-color' : 'pagination-item__number';
+                echo "<a class = '$class' href='?page=$i'>$i</a> ";
+            }
+            echo "<div class = 'pagination-item__cl'>. . .</div>";
+            for ($i = $totalPages-2; $i <= $totalPages; $i++) {
+                $class = ($i == $currentPage) ? 'pagination-item__number pagination-color' : 'pagination-item__number';
+                echo "<a class = '$class' href='?page=$i'>$i</a> ";
+            }
+            echo "<a class = 'pagination-item' href='?page=$nextPage'>Trang sau</a> ";
+            echo "<a class = 'pagination-item' href='?page=$totalPages'>Trang cuối</a>";
+        }
+        ?>
+    </div>
 </body>
 </html>
+
