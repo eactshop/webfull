@@ -15,7 +15,7 @@ $conn = mysqli_connect("localhost", "root", "", "banhang");
 if (!$conn) {
     die("Kết nối CSDL không thành công: " . mysqli_connect_error());
 }
-$itemsPerPage = 4;
+$itemsPerPage = 2;
 
 if (isset($_GET['page']) && is_numeric($_GET['page'])) {
     $currentPage = intval($_GET['page']);
@@ -69,16 +69,18 @@ mysqli_close($conn);
             echo "<a class = 'pagination-item' href='?page=$nextPage'>Trang sau</a> ";
             echo "<a class = 'pagination-item' href='?page=$totalPages'>Trang cuối</a>";
         }
-        if ($totalPages > 6 ) {
+        if ($totalPages > 6 && $currentPage <=$totalPages ) {
             echo "<a class = 'pagination-item' href='?page=1'>Trang đầu</a> ";
             echo "<a class = 'pagination-item' href='?page=$prevPage'>Trang trước</a> ";
 
-            for ($i = 1; $i <= 3; $i++) {
-                $class = ($i == $currentPage) ? 'pagination-item__number pagination-color' : 'pagination-item__number';
-                echo "<a class = '$class' href='?page=$i'>$i</a> ";
+            for ($i = $currentPage-2; $i < $currentPage+3; $i++) {
+                if($i < $totalPages && $i > 0){
+                    $class = ($i == $currentPage) ? 'pagination-item__number pagination-color' : 'pagination-item__number';
+                    echo "<a class = '$class' href='?page=$i'>$i</a> ";
+                }
             }
             echo "<div class = 'pagination-item__cl'>. . .</div>";
-            for ($i = $totalPages-2; $i <= $totalPages; $i++) {
+            for ($i = $totalPages; $i <= $totalPages; $i++) {
                 $class = ($i == $currentPage) ? 'pagination-item__number pagination-color' : 'pagination-item__number';
                 echo "<a class = '$class' href='?page=$i'>$i</a> ";
             }
