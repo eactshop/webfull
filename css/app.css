@@ -1,0 +1,343 @@
+/* trang chu */
+body {
+  margin: 0;
+  position: relative;
+}
+.header {
+  display: flex;
+  height: 49px;
+  background-color: #e5677d;
+  padding: 0 80px;
+}
+.nav-item {
+  height: 100%;
+  display: flex;
+  margin-right: 80px;
+  position: relative;
+}
+.ta-black {
+  display: flex !important;
+  align-items: center !important;
+}
+.nav-text {
+  font-size: 14px;
+  color: #fff;
+  font-weight: 600;
+  margin-right: 8px;
+  height: 100%;
+  align-items: center;
+  display: flex;
+}
+.nav-drop {
+  display: none;
+  position: absolute;
+  top: 50px;
+  width: 200px;
+  height: auto;
+  background-color: #fff;
+  color: #000;
+  z-index: 111;
+}
+.nav-drop__item {
+  text-transform: uppercase;
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+  text-decoration: none;
+  margin: 10px 10px;
+}
+.nav-item:hover .nav-drop {
+  display: block;
+}
+.nav-item:hover {
+  cursor: pointer;
+}
+.nav-item:hover .nav-text {
+  color: #000;
+}
+.nav-item:hover .ta-black {
+  color: #000 !important;
+}
+.danhmuc {
+  padding: 50px 40px;
+}
+.danhmuc-title {
+  text-decoration: none;
+  color: #000;
+  font-size: 22.4px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.danhmuc-title:hover {
+  color: #e5677d;
+}
+.danhmuc-img {
+  width: 120px;
+  height: 120px;
+}
+.col-ta {
+  display: flex;
+  text-decoration: none;
+  flex-direction: column;
+  align-items: center;
+}
+.row-ta {
+  margin-top: 35px !important;
+}
+.danhmuc-text {
+  color: #000;
+  font-size: 14px;
+  list-style: none;
+  font-weight: 600;
+  margin-top: 10px;
+}
+.col-ta:hover .danhmuc-text {
+  color: #e5677d;
+}
+.product {
+  background-color: #d82e4d;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.product-list {
+  width: 95%;
+  border-radius: 10px;
+  background-color: #fff;
+  margin: 10px 0;
+  padding: 15px 15px 25px 15px;
+}
+.product-title {
+  font-size: 22.4px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  --font-serif: "Yeseva One", cursive;
+  margin-bottom: 25px;
+}
+.product-col {
+  width: 288px;
+  background-color: #fff;
+  margin: 10px;
+  padding-bottom: 25px;
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease-in-out;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng với màu sắc */
+}
+.product-col:hover {
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+}
+.product-img {
+  width: 258px;
+  height: 258px;
+}
+.brand-name {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #7a8189;
+  letter-spacing: 1.4px;
+}
+.product-name {
+  font-size: 14px;
+  font-weight: 600;
+}
+.product-price {
+  font-size: 16px;
+  color: #d82e4d;
+  font-weight: 600;
+}
+.product-slb {
+  display: flex;
+  font-size: 12px;
+  margin-top: 25px;
+}
+.product-slb__num {
+  font-weight: 600;
+  margin-right: 5px;
+}
+.mgbt-20 {
+  margin-bottom: 30px;
+}
+.product-all__link {
+  text-decoration: none;
+  color: #d82e4d;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 7px 20px;
+  border-radius: 9999px;
+  margin-top: 20px;
+  border: 1px solid #d82e4d;
+}
+.product-all {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.product-all__link:hover {
+  color: #fff;
+  background-color: #d82e4d;
+  transition: all 0.3s;
+}
+.banner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.list-brand {
+  margin-top: 50px;
+  padding: 0 40px 25px;
+}
+.brand-title {
+  font-size: 22.4px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  --font-serif: "Yeseva One", cursive;
+}
+
+.brand-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.brand-list {
+  display: flex;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+.brand-item {
+  flex: 0 0 auto;
+  margin-right: 20px;
+}
+
+.brand-item img {
+  max-width: 235px;
+  height: auto;
+}
+.brand-list::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+.m-ta{
+    margin: 48px 0 0 0 !important;
+    padding: 0 !important;
+}
+@media (min-width: 1400px){
+.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 100% !important;
+}
+}
+a{
+    text-decoration: none !important;
+}
+.sp-img{
+    z-index: 10000;
+    position: fixed;
+    width: 44px;
+    height: 44px;
+    bottom: 100px;
+    right: 0px;
+}
+.sp-img2{
+    bottom: 20px;
+    width: 66px;
+    height: 66px;
+}
+.sp-up{
+    z-index: 10000;
+    position: fixed;
+    bottom: 150px;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e5677d;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+}
+#back-to-top {
+    position: fixed;
+    bottom: 150px;
+    right: 0px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+#back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top-button {
+    z-index: 10000;
+    position: fixed;
+    bottom: 150px;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d82e4d;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    transition: background-color 0.3s;
+}
+.header-ta{
+    height: 80px;
+    padding: 10px 80px;
+    display: flex;
+    align-items: center;
+}
+.ta-logo{
+    width: 210px;
+}
+.btn-s__ta{
+    background-color: #d82e4d !important;
+    border: 0 !important;
+}
+.input-group{
+    width: 400px !important;
+    margin-left: 50px;
+}
+input[type="text"]:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.ips-ta{
+    border: 1px solid #d82e4d !important;
+    margin-right: 10px;
+    border-radius: 5px !important;
+}
+.ta-phone{
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+}
+.ta-phone__info{
+    margin-left: 20px;
+}
+.ta-phone__text,
+.ta-policy__text{
+    font-size: 14px;
+}
+.ta-phone__number{
+    font-size: 14px;
+    font-weight: 600;
+}
+.ta-policy{
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+}
+.ta-policy__img{
+    width: 32px;
+    height: 32px;
+    margin-right: 20px;
+}
+.text-bl{
+    font-weight: 600;
+}

@@ -15,7 +15,7 @@ $conn = mysqli_connect("localhost", "root", "", "banhang");
 if (!$conn) {
     die("Kết nối CSDL không thành công: " . mysqli_connect_error());
 }
-$itemsPerPage = 2;
+$itemsPerPage = 4;
 
 if (isset($_GET['page']) && is_numeric($_GET['page'])) {
     $currentPage = intval($_GET['page']);
